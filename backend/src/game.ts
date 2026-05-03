@@ -52,7 +52,10 @@ export default class Game {
     console.log(this.board.history());
     if (this.board.isGameOver()) {
       this.player1.send(JSON.stringify({
-        type: GAME_OVER
+        type: GAME_OVER,
+        payload: {
+          winner: this.board.turn() === "w" ? "black" : "white"
+        }
       }));
       this.player2.send(JSON.stringify({
         type: GAME_OVER,
