@@ -15,7 +15,7 @@ const Game = () => {
   }, [game]);
 
   useEffect(() => {
-    const ws = new WebSocket('ws://localhost:8080');
+    const ws = new WebSocket(import.meta.env.VITE_API_URL);
     setSocket(ws);
 
     ws.onopen = () => {
